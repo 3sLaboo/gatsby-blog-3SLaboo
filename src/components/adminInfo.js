@@ -15,7 +15,23 @@ import {rhythm} from "../utils/typography";
 const AdminInfo = () => {
   const data = useStaticQuery(graphql`
     query AdminInfoQuery {
-      adminInfo: file(absolutePath: { regex: "/admin-info.jpg/" }) {
+      adminInfo1: file(absolutePath: { regex: "/admin-info1.jpg/" }) {
+        childImageSharp {
+          fixed(width: 1080, height: 300) {
+            ...GatsbyImageSharpFixed
+            src
+          }
+        }
+      }
+      adminInfo2: file(absolutePath: { regex: "/admin-info2.jpg/" }) {
+        childImageSharp {
+          fixed(width: 1080, height: 300) {
+            ...GatsbyImageSharpFixed
+            src
+          }
+        }
+      }
+      adminInfo3: file(absolutePath: { regex: "/admin-info3.png/" }) {
         childImageSharp {
           fixed(width: 1080, height: 300) {
             ...GatsbyImageSharpFixed
@@ -49,18 +65,32 @@ const AdminInfo = () => {
       }
     }
   `)
+
+  var randNum = Math.floor(Math.random()*(10-1)+1);
+  let src = data.adminInfo1.childImageSharp.fixed.src;
+  let bgColor = 'transparent';
+  if (randNum === 7) {
+    src = data.adminInfo2.childImageSharp.fixed.src;
+  } else if (randNum === 8 || randNum === 9 || randNum === 10) {
+    src = data.adminInfo3.childImageSharp.fixed.src;
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    bgColor = `rgb(${r},${g},${b})`;
+  }
   const useStyles = makeStyles((theme) => ({
     infoBox: {
       marginTop: rhythm(.3),
-      backgroundImage: `url(${data.adminInfo.childImageSharp.fixed.src})`,
+      backgroundImage: `url(${src})`,
+      backgroundColor: `${bgColor}`,
       backgroundSize: '100% 100%',
       [theme.breakpoints.up('sm')]: {
         height: rhythm(15),
-        paddingRight: rhythm(20),
+        paddingRight: rhythm(15),
       },
       [theme.breakpoints.down('sm')]: {
         height: rhythm(8),
-        paddingRight: rhythm(1),
+        paddingRight: '0',
       },
     },
     box: {
