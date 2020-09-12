@@ -38,11 +38,18 @@
     
     タイトルをクリックするとワークの本文に移動します。
 
+4. **自己紹介(パスは/about)**
+    自己紹介をする場所として記載しています。
+
+    内容はほぼ自由です。
+
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
     以下を実行すれば起動できます。残りはgatsby-starter-blogと同じです。
+    (モジュールのインストールに時間がかかると思います。)
 
     ```shell
     # create a new Gatsby site using the blog starter
