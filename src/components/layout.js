@@ -1,70 +1,55 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
 
-import { rhythm, scale } from "../utils/typography"
+import {Container} from "@material-ui/core";
+import {makeStyles} from '@material-ui/core/styles';
 
-const Layout = ({ location, title, children }) => {
+import Header    from "../components/header";
+import AdminInfo from "../components/adminInfo";
+import Footer    from "../components/footer";
+import {rhythm}  from "../utils/typography";
+
+const Layout = ({location, children}) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  let header
-
+  const useStyles = makeStyles((theme) => ({
+    layoutContainer: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      maxWidth: rhythm(45),
+      padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      paddingTop: '0',
+      paddingLeft: '0',
+      paddingRight: '0',
+      backgroundColor:'white',
+    },
+    mainContainer: {
+      paddingLeft: rhythm(1),
+      paddingRight: rhythm(1),
+    },
+  }));
+  const styleClass = useStyles();
   if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
+    return (    
+      <Container className={styleClass.layoutContainer}>
+        <Header/>
+        <Container className={styleClass.mainContainer}>
+          <AdminInfo/>
+          <main>{children}</main>
+          <Footer/>
+        </Container>
+      </Container>
     )
   } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
+    return (    
+      <Container className={styleClass.layoutContainer}>
+        <Header/>
+        <Container className={styleClass.mainContainer}>
+          <main>{children}</main>
+          <AdminInfo/>
+          <Footer/>
+        </Container>
+      </Container>
     )
   }
-  return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
-  )
 }
 
 export default Layout

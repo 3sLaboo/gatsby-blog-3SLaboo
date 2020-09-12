@@ -5,40 +5,51 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  3S Laboo(齋藤システムサービスLABO!)のブログ
 </h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+  `https://github.com/gatsbyjs/gatsby-starter-blog`を基に3S Laboo(齋藤システムサービス)をブログのプログラムを作成しました。
+  よろしければ皆様のベース機能としてご使用ください。
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## 主な機能
+表紙、ブログ、ワーク(作品の説明用のブログを想定)、自己紹介の4つに別れています。
+
+1. **表紙(パスは/)**
+
+    簡単な自己紹介とブログ・ワークの一覧(6件ずつ)を表示します。
+2. **ブログ(パスは/blog)**
+    作成したブログを一覧表示します。
+    
+    ブログはmdファイルで作成します。
+    
+    ブログの種別をblogにするとブログの一覧に表示します。
+    
+    タイトルをクリックするとブログの本文に移動します。
+3. **ワーク(パスは/works)**
+    作成したワークを一覧表示します。
+
+    ワークといってもブログと同じです。
+
+    作成した作品の紹介文等を記載するように検討しています。
+    
+    mdファイルで作成します。
+    
+    ブログの種別をworkにするとワークの一覧に表示します。
+    
+    タイトルをクリックするとワークの本文に移動します。
 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+    以下を実行すれば起動できます。残りはgatsby-starter-blogと同じです。
 
     ```shell
     # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
-    ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
+    gatsby new my-blog-starter https://github.com/3sLaboo/gatsby-blog-3SLaboo
     cd my-blog-starter/
     gatsby develop
     ```
-
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
