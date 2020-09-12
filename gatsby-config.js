@@ -84,10 +84,10 @@ module.exports = {
         name: `3S Laboo Blog`,
         short_name: `3SLabooBlog`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#FFFFFF`,
+        theme_color: `#77acdf`,
         display: `standalone`,
-        icon: `${__dirname}/content/assets/icon-maskable.png`,
+        icon: `src/images/icon-maskable.png`,
         icon_options: {
           purpose: `maskable`,
         },
